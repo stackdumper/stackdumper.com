@@ -1,14 +1,17 @@
-import React, { lazy, Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { Spinner } from './components/spiner.component'
 
-const HomeScreen = lazy(() => import('./screens/home.screen'))
+// @ts-ignore
+import loadable from '@loadable/component'
+
+const HomeScreen = loadable(() => import('./screens/home.screen'))
 
 export const App: React.FunctionComponent = () => (
-  <Row>
+  <Row style={{ minHeight: '90vh' }}>
     <Col xs />
     <Col xs={12} sm={10} md={8} lg={6}>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner timeout={0} />}>
         <HomeScreen />
       </Suspense>
     </Col>

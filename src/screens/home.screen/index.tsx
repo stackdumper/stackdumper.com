@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTitle } from 'react-use'
+import useTitle from 'react-use/lib/useTitle'
 
 import { PersonalInfo } from './views/personal-info.view'
 
