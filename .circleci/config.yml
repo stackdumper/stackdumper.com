@@ -1,9 +1,6 @@
 version: 2
 jobs:
   deploy:
-    branches:
-      only:
-        - source
     docker:
       - image: node
     steps:
@@ -26,4 +23,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - deploy
+      - deploy:
+          filters:
+            branches:
+              only:
+                - source
