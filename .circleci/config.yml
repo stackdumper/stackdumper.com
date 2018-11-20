@@ -21,7 +21,7 @@ jobs:
             mv /tmp/build/* .
 
             git add .
-            git commit --allow-empty -m "$(git log master -1 --pretty=%B)"
+            git commit --allow-empty -m "Build"
 
             git push git@github.com:stackdumper/stackdumper.com.git master -f
 workflows:
