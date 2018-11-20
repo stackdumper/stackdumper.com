@@ -15,6 +15,7 @@ jobs:
             git config user.email "stackdumper@gmail.com"
             git config user.name "stackdumper"
 
+            git branch -d master
             git checkout --orphan master
             git rm --cached -rf .
             mv /tmp/build/* .
