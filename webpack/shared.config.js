@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BarPlugin = require('webpackbar')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
@@ -13,8 +14,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
@@ -23,8 +23,7 @@ module.exports = {
         test: /\.(less|css)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [
-            {
+          use: [{
               loader: 'css-loader',
             },
             {
@@ -43,6 +42,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'stackdumper',
       template: path.resolve(__dirname, '../templates/index.html'),
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     }),
     new ExtractTextPlugin('styles.css'),
     new BarPlugin(),
