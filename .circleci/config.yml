@@ -18,9 +18,9 @@ jobs:
             git branch -D master
             git checkout --orphan master
             git rm --cached -rf .
-            mv /tmp/build/* .
+            mv /tmp/build docs
 
-            git add .
+            git add docs
             git commit --allow-empty -m "Build"
 
             git push git@github.com:stackdumper/stackdumper.com.git master -f
