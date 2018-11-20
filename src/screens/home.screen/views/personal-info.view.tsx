@@ -16,7 +16,7 @@ const Nickname = styled.h1<{
 `
 
 export const PersonalInfo: React.FunctionComponent = () => (
-  <Container padding="20px">
+  <Container padding="20px" className="fadeIn">
     <Section height="125px" />
     <Section height="225px">
       <Avatar
