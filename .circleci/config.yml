@@ -1,6 +1,9 @@
 version: 2
 jobs:
   deploy:
+    branches:
+      only:
+        - source
     docker:
       - image: node
     steps:
@@ -11,15 +14,14 @@ jobs:
       - deploy:
           name: Deploy Release to GitHub
           command: |
-            if [ $CIRCLE_BRANCH == 'master' ]; then
-              git config user.email "stackdumper@gmail.com"
-              git config user.name "stackdumper"
+            git config user.email "stackdumper@gmail.com"
+            git config user.name "stackdumper"
 
-              git add docs -f docs
-              git commit --allow-empty -m "$(git log master -1 --pretty=%B)"
+            git checkout master
+            git add docs -f docs
+            git commit --allow-empty -m "$(git log master -1 --pretty=%B)"
 
-              git push git@github.com:stackdumper/stackdumper.com.git master
-            fi
+            git push git@github.com:stackdumper/stackdumper.com.git master
 workflows:
   version: 2
   build:
