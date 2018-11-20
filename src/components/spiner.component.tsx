@@ -1,8 +1,6 @@
 import React from 'react'
-import useTimeout from 'react-use/lib/useTimeout'
-
-// @ts-ignore
-import Loader from 'react-feather/dist/icons/Loader'
+import { useTimeout } from 'react-use'
+import { Loader } from 'react-feather'
 
 export const Spinner: React.FunctionComponent<{
   timeout?: number
