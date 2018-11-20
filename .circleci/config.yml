@@ -5,7 +5,7 @@ jobs:
       - image: node
     steps:
       - checkout
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - deploy:
           name: Deploy Release to GitHub
