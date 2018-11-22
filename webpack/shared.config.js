@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BarPlugin = require('webpackbar')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin')
+const PwaManifestPlugin = require('webpack-pwa-manifest')
 
 module.exports = {
   entry: './src/index.ts',
@@ -14,7 +15,8 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
@@ -23,7 +25,8 @@ module.exports = {
         test: /\.(less|css)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
+          use: [
+            {
               loader: 'css-loader',
             },
             {
@@ -43,9 +46,22 @@ module.exports = {
       title: 'stackdumper',
       template: path.resolve(__dirname, '../templates/index.html'),
     }),
+    new PwaManifestPlugin({
+      name: 'stackdumper',
+      short_name: 'stackdumper',
+      description: 'stackdumper profile',
+      background_color: '#ffffff',
+      crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      icons: [
+        {
+          src: path.resolve('assets/avatar.png'),
+          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+        },
+      ],
+    }),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
-      skipWaiting: true
+      skipWaiting: true,
     }),
     new ExtractTextPlugin('styles.css'),
     new BarPlugin(),
