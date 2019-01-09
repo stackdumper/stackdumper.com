@@ -31,7 +31,7 @@ export const PersonalInfo: React.FunctionComponent = () => (
     </Section>
     <Section height="30px">
       <Text fontSize="12px" fontWeight="light" color="secondary">
-        Web / Mobile / DevOps
+        Web / Mobile / SRE
       </Text>
     </Section>
     <Section height="10px">
