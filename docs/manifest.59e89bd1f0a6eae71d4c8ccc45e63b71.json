@@ -1,0 +1,41 @@
+{
+  "icons": [
+    {
+      "src": "icon_512x512.360cc477dd38a936dc773d359fb0774b.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_384x384.59d2fb30263857310e436079ed8a8091.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_256x256.dff285cc4c8157c41154e847ece7691d.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_192x192.b114363eaaa6f372e09778c8d2cf92f5.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_128x128.442bbbb88714e994e69092079412699b.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_96x96.dde439653705e85314c447bb930fccb3.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "stackdumper",
+  "short_name": "stackdumper",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "stackdumper profile",
+  "background_color": "#ffffff"
+}
